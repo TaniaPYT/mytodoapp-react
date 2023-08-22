@@ -81,9 +81,21 @@ export default function Main(){
 
     return(
       <div>
-        <input id="input-item" className="input-item" type='text' placeholder="what to do next .." />
-        <input id="input-priority" className="input-priority" type="number" placeholder="how important .."/>
-        <button className="add-button" onClick={addTodo}>add</button>
+        <div className="search-bar">
+          <input
+            id="input-item"
+            className="input-item"
+            type='text' placeholder="what to do next .."
+          />
+
+          <input
+            id="input-priority"
+            className="input-priority"
+            type="number" 
+            placeholder="how important .."
+          />
+          <button className="add-button" onClick={addTodo}>add</button>
+        </div>
         <div className="list-wrapper">
           <div  className="todo-list">
             <h2>Todo List</h2>

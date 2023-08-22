@@ -2,6 +2,8 @@
   text-align: center;
 }
 
+/* Header */
+
 .header {
   background-color: #304163;
   display: flex;
@@ -12,6 +14,32 @@
   color: white;
 }
 
+
+/* SearchBar  margin: 2em;
+  display: flex;*/
+.search-bar {
+  margin: 2em;
+}
+
+
+.input-item {
+  padding: .5em 0;
+  border: 0;
+  outline: 0;
+  color: #304163;
+}
+
+.input-priority{
+  padding: .5em 0;
+  width: 1.5em;
+  margin: 0 1em;
+  border: 0;
+  outline: 0;
+  color: #304163
+}
+
+
+/* List */
 .deleteTodo-span {
   text-decoration-line: line-through;
   text-decoration-color: rgb(0, 0, 0);
@@ -37,6 +65,7 @@
   grid-template-columns:5% 90% 5%;
 }
 
-.input-priority{
-  width: 30px;
+.footer-content {
+  background: #304163;
+  bottom: 0;
 }
