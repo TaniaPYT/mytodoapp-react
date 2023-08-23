@@ -98,12 +98,12 @@ export default function Main(){
         </div>
         <div className="list-wrapper">
           <div  className="todo-list">
-            <h2>Todo List</h2>
-            <span>{todos.map((todo, index) => (<TodoItem todo={todo} index={index} key={index} />))}</span>
+            <h2 className="listTitle">Todo List</h2>
+            <span className="todoItems">{todos.map((todo, index) => (<TodoItem todo={todo} index={index} key={index} />))}</span>
           </div>
           <div  className="completed-list">
-            <h2>Completed List</h2>
-            <span>{completedTodos.map((todo,index) => <CompletedTodoItem todo={todo} index={index} key={index}/>)}</span>
+            <h2 className="listTitle">Completed List</h2>
+            <span className="completedItems">{completedTodos.map((todo,index) => <CompletedTodoItem todo={todo} index={index} key={index}/>)}</span>
           </div>
         </div>
       </div>
