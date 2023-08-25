@@ -31,44 +31,41 @@ export default function Main(){
     const todoCompleted = todos[index];
 
     setTodos((prevState) => {
-      return [
-        ...prevState.slice(0, index),
-        {
-          ...prevState[index],
-          completed: true // toggle the completed property of the todo
-        },
-        ...prevState.slice(index + 1),
-      ]
-    })
+        return prevState.map((todo, i) => {
+          if (i === index) {
+            return {
+              ...todo,
+              completed: true // toggle the completed property of the todo
+            };
+          }
+          return todo;
+        });
+      });
 
- setCompletedTodos((prevState) => {
+    // Move the completed task to the completedTodos array
+    setCompletedTodos((prevState) => {
       return [...prevState, todoCompleted]
     })
-
-    console.log(completedTodos);
-
- {/*
-  setCompletedTodos((prevState) => {
-      return [
-        ...prevState,
-        {task: todo.task, completed: true},
-      ]
-    })
-    console.log(completedTodos);
-*/}
   }
 
+
+  /* Render -- Completed List*/
   function CompletedTodoItem({todo}){
-    return <div>{todo.task}</div>
+    return(
+      <div>
+        <span>{todo.task}</span>
+      </div>
+    )
   }
 
+  /* Render -- Todo List*/
   function TodoItem({todo, index}){
     const todoStyle = {
       textDecoration: todo.completed ? "line-through" : "none"
     }
     return(
       <div className="todo-item">
-        <input className="checkbox" type="checkbox" checked={todo.completed}  onChange={() => completeTodo(index)} />
+        <input className="checkbox" type="checkbox" checked={todo.completed} onChange={() => completeTodo(index)} />
         <span style={todoStyle}>
             {todo.task}-
             Date: {todo.date.toString()}-
@@ -87,23 +84,26 @@ export default function Main(){
             className="input-item"
             type='text' placeholder="what to do next .."
           />
-
           <input
             id="input-priority"
             className="input-priority"
             type="number" 
-            placeholder="how important .."
+            placeholder="priority"
           />
           <button className="add-button" onClick={addTodo}>add</button>
         </div>
         <div className="list-wrapper">
-          <div  className="todo-list">
+          <div  className="column-todo-list">
             <h2 className="listTitle">Todo List</h2>
-            <span className="todoItems">{todos.map((todo, index) => (<TodoItem todo={todo} index={index} key={index} />))}</span>
+            <span className="todoItems">
+              {todos.map((todo, index) => (<TodoItem todo={todo} index={index} key={index} />))}
+            </span>
           </div>
-          <div  className="completed-list">
+          <div  className="column-completed-list">
             <h2 className="listTitle">Completed List</h2>
-            <span className="completedItems">{completedTodos.map((todo,index) => <CompletedTodoItem todo={todo} index={index} key={index}/>)}</span>
+            <span className="completedItems">
+              {completedTodos.map((todo,index) => <CompletedTodoItem todo={todo} index={index} key={index}/>)}
+            </span>
           </div>
         </div>
       </div>

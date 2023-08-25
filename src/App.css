@@ -23,10 +23,11 @@
 
 .listTitle {
   background-color: #d6a781;
-  margin: 1em;
+  margin: 3em;
   display: inline;
-  padding: 1em;
-  border-radius: 2em;
+  border-radius: .2em;
+  padding-left: .2em;
+  padding-right: .2em;
 }
 
 .input-item {
@@ -40,7 +41,8 @@
 
 .input-priority{
   padding: .5em 0;
-  width: 1.5em;
+  width: 2.5em;
+  height: 2.5em;
   margin: 0 1em;
   border: 0;
   outline: 0;
@@ -60,8 +62,8 @@
   justify-content: space-around;
 }
 
-.todo-list,
-.completed-list{
+.column-todo-list,
+.column-completed-list{
   flex: 50%;
   margin: 2em;
 }
